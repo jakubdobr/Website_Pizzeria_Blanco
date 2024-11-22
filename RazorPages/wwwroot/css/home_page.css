@@ -1,0 +1,452 @@
+﻿
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Styl ogólny dla sidebaru */
+.sidebar {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #FFF;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: black;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+    /* Styl dla logo */
+    .sidebar img {
+        max-width: 100%;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Nawigacja */
+    .sidebar nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .sidebar nav ul li {
+            margin: 10px 0;
+        }
+
+            .sidebar nav ul li a {
+                color: #FFF;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .sidebar nav ul li a:hover {
+                    color: #ddd;
+                }
+
+/* Sekcja "Twoje zamówienie" */
+.order-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#order-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left; /* Wyrównanie tekstu do lewej */
+    color: #aaa; /* Kolor tekstu dla nieaktywnego przycisku */
+    background-color: #000; /* Czarne tło */
+    border: 1px solid #555;
+    border-radius: 5px;
+    position: relative; /* Aby ikona była po prawej stronie */
+    box-sizing: border-box;
+}
+
+    #order-button .dropdown-icon {
+        position: absolute;
+        right: 10px; /* Odstęp od prawej strony */
+        top: 50%;
+        transform: translateY(-50%); /* Wyśrodkowanie ikony w pionie */
+        font-size: 12px; /* Rozmiar ikony */
+        color: #aaa; /* Kolor ikony */
+    }
+
+/* Sekcja kontaktowa */
+.contact-section {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.order-button, .phone-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.order-button {
+    border: 1px solid #A53434;
+}
+
+.phone-button {
+    border: 1px solid #619A6A;
+}
+
+/* Styl dla ikon w przyciskach */
+.icon {
+    margin-left: 5px;
+}
+
+/* Ikona Facebooka */
+.social-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.facebook-icon {
+    font-size: 24px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* Stopka w sidebarze */
+.sidebar-footer {
+    margin-top: auto; /* Przesuwa stopkę na dół */
+    text-align: center;
+    font-size: 12px;
+    color: #AAA;
+}
+
+
+
+
+
+
+
+
+
+/*Początek Main*/
+
+/* Styl dla sekcji powitalnej */
+
+
+/* Główna zawartość */
+.content {
+    background-color: #0F0F0F;
+    margin-left: 250px; /* Przesunięcie o szerokość sidebaru */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; /* Ustawia sekcje w kolumnie */
+    width: calc(100% - 250px); /* Zajmuje resztę szerokości oprócz sidebaru */
+    box-sizing: border-box;
+}
+
+/* Sekcja główna */
+.intro-section {
+    display: flex;
+    max-width: 1200px; /* Maksymalna szerokość sekcji */
+    width: 100%; /* Pełna szerokość dostępna w .content */
+    padding: 80px; /* Padding dla całej sekcji */
+    gap: 120px; /* Odstęp między tekstem a obrazem */
+}
+
+/* Lewa część sekcji - tekst powitalny */
+.intro-text {
+    flex: 2; /* Większa część dla tekstu */
+    color: #FFF;
+    padding: 80px; /* Padding dla całej sekcji */
+}
+    .intro-text h1,
+    .intro-text h2 {
+        margin: 0; /* Usuń marginesy */
+        line-height: 1.2; /* Ustalona wysokość linii */
+    }
+
+    .intro-text h1 {
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 150%; /* 36px */
+    }
+    .intro-text h2 {
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 150%; /* 36px */
+    }
+
+
+    .intro-text p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+/* Przyciski */
+.intro-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 100px; /* Dodaje odstęp od tekstu powyżej */
+}
+
+.order-online, .phone-number {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: transparent;
+}
+
+.order-online {
+    border: 1px solid #A53434;
+}
+
+.phone-number {
+    border: 1px solid #619A6A;
+}
+
+
+
+
+
+
+/* about us zawartość */
+
+.about-section {
+    display: flex;
+    width: 100%;
+    padding: 80px;
+    box-sizing: border-box;
+    margin-top: 40px; /* Odstęp między sekcją główną a sekcją "O nas" */
+}
+
+
+/* Lewa część sekcji - obraz */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+
+
+/* Prawa część sekcji - tekst */
+.about-text {
+    flex: 2;
+    color: #FFF;
+    padding: 80px;
+    gap: 20px;
+    margin-left: 150px; /* Zwiększa odstęp między obrazem a tekstem */
+    min-width: 0; /* Upewnia się, że elementy będą elastyczne w gridzie */
+}
+
+    .about-text h2 {
+        color: #FF5555; /* Kolor nagłówka */
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+/* Styl dla przycisku */
+.menu-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #FF5555;
+    color: white;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Odstęp od tekstu powyżej */
+}
+
+
+
+/* poczatek kolejej sekcji - menu*/
+
+
+.menu-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px; /* Padding dla sekcji */
+    background-image: url('../images/icon_3.png'); /* Spróbuj z poprawioną ścieżką */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.menu-header {
+    font-size: 24px; /* Rozmiar tekstu nagłówka */
+    color: #FF5555; /* Kolor nagłówka */
+    font-weight: bold;
+    margin-bottom: 0; /* Usuń dolny margines */
+    padding-bottom: 20px; /* Dodaj odstęp od dołu */
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px 60px; /* 100px odstępu pionowego, 60px poziomego */
+    width: 100%;
+}
+.menu-item {
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+    .menu-item h3 {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .menu-item p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+
+
+
+
+
+
+    /* stopka*/
+
+
+.footer {
+    background-color: #0F0F0F;
+    color: #FFF;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 300px; /* Duży odstęp między lewą a prawą częścią */
+}
+.footer-left{
+    margin-left:17px;
+}
+.footer-left,
+.footer-right {
+    flex: 1;
+}
+
+    .footer-left h2 {
+        color: #FF5555;
+        margin-bottom: 40px;
+    }
+
+    .footer-left p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+
+.phone-button {
+    border: 1px solid #FF5555;
+    color: #FF5555;
+    padding: 10px 20px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.footer-right {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+    .footer-right h3 {
+        font-weight: bold;
+        font-size: 16px;
+        color: #FF5555;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .footer-right p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #AAA;
+    }
+
+
+
+
+
+
+
+
+

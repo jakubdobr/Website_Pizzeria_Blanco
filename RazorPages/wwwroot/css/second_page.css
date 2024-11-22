@@ -1,0 +1,286 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Styl ogólny dla sidebaru */
+.sidebar {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #FFF;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: black;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+    /* Styl dla logo */
+    .sidebar img {
+        max-width: 100%;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Nawigacja */
+    .sidebar nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .sidebar nav ul li {
+            margin: 10px 0;
+        }
+
+            .sidebar nav ul li a {
+                color: #FFF;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .sidebar nav ul li a:hover {
+                    color: #ddd;
+                }
+
+/* Sekcja "Twoje zamówienie" */
+.order-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#order-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left; /* Wyrównanie tekstu do lewej */
+    color: #aaa; /* Kolor tekstu dla nieaktywnego przycisku */
+    background-color: #000; /* Czarne tło */
+    border: 1px solid #555;
+    border-radius: 5px;
+    position: relative; /* Aby ikona była po prawej stronie */
+    box-sizing: border-box;
+}
+
+    #order-button .dropdown-icon {
+        position: absolute;
+        right: 10px; /* Odstęp od prawej strony */
+        top: 50%;
+        transform: translateY(-50%); /* Wyśrodkowanie ikony w pionie */
+        font-size: 12px; /* Rozmiar ikony */
+        color: #aaa; /* Kolor ikony */
+    }
+
+/* Sekcja kontaktowa */
+.contact-section {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.order-button, .phone-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.order-button {
+    border: 1px solid #A53434;
+}
+
+.phone-button {
+    border: 1px solid #619A6A;
+}
+
+/* Styl dla ikon w przyciskach */
+.icon {
+    margin-left: 5px;
+}
+
+/* Ikona Facebooka */
+.social-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.facebook-icon {
+    font-size: 24px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* Stopka w sidebarze */
+.sidebar-footer {
+    margin-top: auto; /* Przesuwa stopkę na dół */
+    text-align: center;
+    font-size: 12px;
+    color: #AAA;
+}
+
+
+
+/*MAIN, SEKCJA PIERWSZA*/
+
+main {
+    margin-left: 250px; /* Tyle samo co szerokość sidebaru */
+    padding: 20px; /* Dodaj trochę odstępu wewnętrznego */
+    box-sizing: border-box; /* Uwzględnij padding w wymiarach */
+    background-color: #121212; /* Kolor tła dla sekcji */
+    color: #fff; /* Kolor tekstu */
+    min-height: 100vh; /* Aby main rozciągał się na całą wysokość */
+}
+
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamiczna siatka */
+    gap: 20px; /* Odstęp między elementami */
+    margin-top: 20px; /* Dodatkowy odstęp od tytułu sekcji */
+}
+
+.menu-item {
+    background-color: #1e1e1e; /* Kolor tła kart */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+}
+
+    .menu-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .menu-item p {
+        margin: 5px 0;
+        font-size: 0.9em;
+        color: #ccc;
+    }
+
+    .menu-item button {
+        margin-top: 10px;
+        background-color: #ff4500;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .menu-item button:hover {
+            background-color: #ff6347;
+        }
+
+
+
+/* OKIENKO Z DODAWANIEM ZAMOWIENIA*/
+
+
+.modal {
+    color: black; /* Ustawia tekst na czarny */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Przyciemnione tło */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff; /* Białe tło dla modala */
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px; /* Większa szerokość */
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Mocniejszy cień */
+    position: relative; /* Aby umiejscowić przycisk zamknięcia */
+    font-family: Arial, sans-serif; /* Przyjemniejsza czcionka */
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #555;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Płynne przejście koloru */
+}
+
+    .close-btn:hover {
+        color: #000;
+    }
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modal p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.modal button {
+    background-color: #007bff; /* Niebieski */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+    /* Efekt hover dla przycisków */
+    .modal button:hover {
+        background-color: #0056b3; /* Ciemniejszy niebieski */
+    }
+
+/* Pola wyboru i licznik */
+.modal input[type="number"] {
+    width: 50px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+

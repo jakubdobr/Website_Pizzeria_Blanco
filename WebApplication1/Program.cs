@@ -17,7 +17,7 @@ builder.Services.AddHttpClient<AddressVerificationService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+var app = builder.Build();
 var key = Encoding.ASCII.GetBytes("superSecretKey@345SuperSecretKey@345");
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -83,7 +83,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

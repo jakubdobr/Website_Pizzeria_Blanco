@@ -1,0 +1,250 @@
+﻿@page
+@model MenuPage.Pages.SecondPageModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/second_page.css">
+</head>
+<body>
+        <header class="sidebar">
+            <img src="~/images/logo.png" alt="Logo Pizzerii">
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#section1">Strona głowna</a>
+                    </li>
+                    <li>
+                        <a href="#section2">O nas</a>
+                    </li>
+                    <li>
+                        <a href="#section3">Menu</a>
+                    </li>
+                    <li>
+                        <a href="#section3">Kontakt</a>
+                    </li>
+                </ul>
+
+
+                <div class="order-section">
+                    <button id="order-button" class="inactive" disabled>
+                        Twoje zamówienie
+                        <span class="dropdown-icon">▼</span> <!-- Ikona rozwijania -->
+                    </button>
+                </div>
+
+
+                <div class="contact-section">
+                    <p>Zamów online lub zadzwoń do nas!</p>
+                    <button class="order-button">Zamów online <span class="icon">🛒</span></button>
+                    <button class="phone-button">+48 534 127 364 <span class="icon">📞</span></button>
+                </div>
+
+
+                <div class="social-section">
+                    <a href="https://www.facebook.com" target="_blank" class="facebook-icon">📘</a>
+                </div>
+
+            </nav>
+
+
+        </header>
+        <main>
+            <section id="menu-pizza" class="menu-section">
+                <h2>Pizza</h2>
+            <div class="menu-grid">
+                @foreach (var pizza in Model.PizzaMenu)
+                {
+                    <div class="menu-item">
+                        <h3>@pizza.Name</h3>
+                        <p>@pizza.Description</p>
+                        <p>Cena M: @pizza.Price26cm zł</p>
+                        <p>Cena L: @pizza.Price32cm zł</p>
+                        <p>Cena XL: @pizza.Price42cm zł</p>
+                        <button onclick="showModal('@pizza.Id', '@pizza.Name', '@pizza.Description')">Zamów</button>
+
+                    </div>
+                }
+            </div>
+
+
+
+            </section>
+        <section id="menu-burger" class="menu-section">
+            <h2>Burger</h2>
+            <div class="menu-grid">
+                @foreach (var burger in Model.BurgerMenu)
+                {
+                    <div class="menu-item">
+                        <h3>@burger.Name</h3>
+                        <p>@burger.Description</p>
+                        <p>Cena: @burger.Price zł</p>
+                        <button>Zamów</button>
+                    </div>
+                }
+            </div>
+
+
+
+        </section>
+
+        <section id="menu-dinners" class="menu-section">
+            <h2>Dania obiadowe</h2>
+            <div class="menu-grid">
+                @foreach (var dinner in Model.DinnersMenu)
+                {
+                    <div class="menu-item">
+                        <h3>@dinner.Name</h3>
+                        <p>@dinner.Description</p>
+                        <p>Cena: @dinner.Price zł</p>
+                        <button>Zamów</button>
+                    </div>
+                }
+            </div>
+        </section>
+            <section id="menu-kebab" class="menu-section">
+                <h2>Kebab</h2>
+                <div class="menu-grid">
+                    @foreach (var kebab in Model.KebabMenu)
+                    {
+                        <div class="menu-item">
+                            <h3>@kebab.Name</h3>
+                            <p>@kebab.Description</p>
+                            <p>Cena: @kebab.Price zł</p>
+                            <button>Zamów</button>
+                        </div>
+                    }
+                </div>
+            </section>
+
+
+
+
+            <section id="menu-casseroles" class="menu-section">
+                <h2>Zapiekanki</h2>
+                <div class="menu-grid">
+                    @foreach (var casserole in Model.CasserolesMenu)
+                    {
+                        <div class="menu-item">
+                            <h3>@casserole.Name</h3>
+                            <p>Cena: @casserole.Prize zł</p>
+                            <button>Zamów</button>
+                        </div>
+                    }
+                </div>
+            </section>
+
+
+
+            <section id="menu-fries" class="menu-section">
+                <h2>Frytki</h2>
+                <div class="menu-grid">
+                    @foreach (var fries in Model.FriesMenu)
+                    {
+                        <div class="menu-item">
+                            <h3>@fries.Name</h3>
+                            <p>Cena: @fries.Prize zł</p>
+                            <button>Zamów</button>
+                        </div>
+                    }
+                </div>
+            </section>
+
+
+
+
+            <section>
+
+            <div id="orderModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h2 id="modal-title">Pizza</h2>
+                    <p id="modal-description">Opis pizzy...</p>
+                    <p>Wybierz rozmiar:</p>
+                    <label><input type="radio" name="size" value="small"> Mała (26cm)</label>
+                    <label><input type="radio" name="size" value="medium"> Średnia (32cm)</label>
+                    <label><input type="radio" name="size" value="large"> Duża (42cm)</label>
+                    <p>Ilość:</p>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <div>
+                        <button onclick="addToCart()">Dodaj do zamówienia</button>
+                        <button onclick="placeOrder()">Zamawiam i płacę</button>
+                    </div>
+                </div>
+            </div>
+
+
+            </section>
+
+
+
+
+        </main>
+
+
+
+
+    <script>
+        function showModal(productId, productName, description) {
+            // Ustaw dane w modal
+            document.getElementById('modal-title').innerText = productName;
+            document.getElementById('modal-description').innerText = description;
+
+            // Pokaż modal
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            // Ukryj modal
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function addToCart() {
+            alert('Produkt dodany do koszyka!');
+            closeModal();
+        }
+
+        function placeOrder() {
+            alert('Przekierowanie do płatności...');
+            closeModal();
+        }
+    </script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
